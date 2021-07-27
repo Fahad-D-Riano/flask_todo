@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<h1 align="center">Todos</h1>
+<ul class="list-group list-group-flush" id="notes">
+  {% for note in user.notes %}
+  <li class="list-group-item">
+    {{ note.data }}
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button
+        type="button"
+        class="btn btn-danger me-md-2"
+        onClick="deleteNote({{ note.id }})"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+      &nbsp;&nbsp;
+      <button
+        type="button"
+        class="btn btn-success"
+        onClick="updateNote({{ note.id }})"
+      >
+        <span aria-hidden="true">Update</span>
+      </button>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+<form method="POST">
+  <textarea name="note" id="note" class="form-control">{{note}}</textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Todo</button>
+  </div>
+</form>
+{% endblock %}
