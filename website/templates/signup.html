@@ -1,0 +1,72 @@
+{% extends "template.html" %}
+{% block content %}
+
+<div style="position:relative;">
+    <div style="position:absolute; top:50%; left:50%; transform:translateY(50%) translateX(-50%);">
+    <form method="post">
+        <label class="sr-only" for="inlineFormInputGroup">Username</label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user"></i></div>
+            </div>
+            <input type="text" class="username form-control" id="inlineFormInputGroup"
+                   placeholder="Username" data-toggle="popover" data-placement="right"
+                   data-content="Enter a string containing alphanumeric character or dashes not exceeding 100 in length."
+                   data-trigger="focus"  title="Username" autocomplete="off"
+                   name="username" required/>
+        </div>
+        <label class="sr-only" for="inlineFormInputGroup">Email</label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-envelope"></i></div>
+            </div>
+            <input type="email" class="email form-control" id="inlineFormInputGroup"
+                   placeholder="Email (for recovery)" data-toggle="popover" data-placement="right"
+                   data-content="Enter a valid email address for recovery of password in future."
+                   data-trigger="focus"  title="Email" autocomplete="off"
+                   name="email" required/>
+        </div>
+        <label class="sr-only" for="inlineFormInputGroup">Password</label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-lock"></i></div>
+            </div>
+            <input type="password" class="password form-control" id="inlineFormInputGroup"
+                   placeholder="Password" data-toggle="popover" data-placement="right"
+                   data-content="Enter a secure password of at least 5 characters and not exceeding 200 characters."
+                   data-trigger="focus"  title="Password" autocomplete="off"
+                   name="password" required/>
+        </div>
+        <label class="sr-only" for="inlineFormInputGroup">Confirm password</label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-lock"></i></div>
+            </div>
+            <input type="password" class="confirm_password form-control" id="inlineFormInputGroup"
+                   placeholder="Confirm Password" data-toggle="popover" data-placement="right"
+                   data-content="Confirm your password."
+                   data-trigger="focus"  title="Confirm Password" autocomplete="off"
+                   name="confirm_password" required/>
+        </div>
+        <br/>
+
+        <center>
+          <button type="submit" name="submit_signup" class="btn btn-primary">Submit</button>
+        </center>
+    </form>
+    <br/><hr/>
+    <form method="post">
+        <input type="submit" class="form-control" name="back_to_main" id="inlineFormInputGroup" value="Go Back">
+    </form>
+    <br/>
+    {% if error_msg %}
+        <div class="alert alert-danger" role="alert">{{error_msg}}</div>
+    {% endif %}
+    </div>
+</div>
+
+<script>
+{% include "js/signup.js" %}
+</script>
+
+{% endblock content %}

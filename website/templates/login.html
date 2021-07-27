@@ -1,0 +1,50 @@
+{% extends "template.html" %}
+{% block content %}
+<div style="position:relative">
+<div style="position:absolute; top:50%; left:50%; transform:translateY(50%) translateX(-50%);">
+{% if recovery_password %}
+    <form method="post">
+        <label class="sr-only" for="inlineFormInputGroup">Email</label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-envelope"></i></div>
+            </div>
+            <input type="email" class="form-control" id="inlineFormInputGroup" placeholder="Email" autocomplete="off" required/>
+        </div>
+        <center><button type="submit" name="send_recovery" class="btn btn-primary">Submit</button></center>
+    </form>
+{% else %}
+    <form method="post">
+        <label class="sr-only" for="inlineFormInputGroup">Username</label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user"></i></div>
+            </div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" name="username" placeholder="Username" autocomplete="off" required/>
+        </div>
+        <label class="sr-only" for="inlineFormInputGroup">Password</label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-lock"></i></div>
+            </div>
+            <input type="password" class="form-control" id="inlineFormInputGroup" name="password" placeholder="Password" autocomplete="off" required/>
+        </div>
+        <br/>
+        <center><button type="submit" name="submit_login" class="btn btn-primary">Submit</button></center>
+    </form>
+    <br/>
+    <form method="post">
+        <input type="submit" class="form-control" name="forgot_password" id="inlineFormInputGroup" value="Forgot password?">
+    </form>
+    <br/><hr/>
+    <form method="post">
+        <input type="submit" class="form-control" name="back_to_main" id="inlineFormInputGroup" value="Go Back">
+    </form>
+{% endif %}
+<br/>
+{% if error_msg %}
+    <div class="alert alert-danger" role="alert">{{error_msg}}</div>
+{% endif %}
+</div>
+</div>
+{% endblock content %}

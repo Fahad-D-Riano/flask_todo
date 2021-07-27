@@ -1,0 +1,52 @@
+{% extends "template.html" %}
+
+{% block content %}
+
+<div class="alert alert-light" role="alert">
+    <h4 class="alert-heading">Do something today!</h4>
+    <p>
+        Create a new task!
+        <div id="notification" style="display:inline;"></div>
+    </p>
+
+    <hr/>
+    <!-- Show tags -->
+    {% if tags %}
+        <small>My tags</small><br>
+        {% for tag in tags %}
+            <div style="display:inline">
+                <span class="badge badge-info"><div style="display:inline">{{tag}}</div>
+                    <button class='btn btn-small btn-light tag' onclick="clear_tag(this)">&times</button>
+                </span>&nbsp
+            </div>
+        {% endfor %}
+        <br/><br/>
+    {% endif %}
+
+    <!-- Delete tags -->
+    <form method="post"><input type="submit" id="delete_tag" name="delete_tag" value="" style="visibility:hidden;"/></form>
+
+    <!-- Add tasks -->
+    <p class="mb-0">
+        <button type="button" id="add_task" class="btn btn-light btn-lg btn-block"
+                data-toggle="modal" data-target="#add_task_modal">
+            <i class="fa fa-plus" style="font-size:48px;"></i
+        </button>
+    </p>
+</div>
+
+<!-- Filter task views -->
+{% include "todo_page/filter_task_views.html" %}
+
+<!-- Modal form to create tasks -->
+{% include "todo_page/create_task_form.html" %}
+
+<br/>
+
+<!-- Display tasks -->
+{% include "todo_page/display_task.html" %}
+
+<script>
+{% include "js/todo.js" %}
+</script>
+{% endblock content %}
