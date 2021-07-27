@@ -1,0 +1,22 @@
+{% extends "template.html" %}
+{% block content %}
+
+<div style="position:relative;">
+    <div style="position:absolute; top:50%; left:50%; transform:translateY(50%) translateX(-50%);">
+    <div class="card bg-light mb-3" style="max-width:18rem;">
+        <div class="card-header">To-Do</div>
+            <div class="card-body">
+                <h5 class="card-title">Todo</h5>
+                <p class="card-text">Plan your day</p>
+            </div>
+    </div>
+    <form method="post">
+        <button type="submit" class="btn btn-outline-primary"name="login" style="width:18rem;">Login</button>
+    </form>
+    <form method="post">
+        <input type="submit" class="form-control" name="sign_up" id="inlineFormInputGroup" value="Don't have an account?">
+    </form>
+    </div>
+</div>
+
+{% endblock content %}
