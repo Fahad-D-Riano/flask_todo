@@ -1,0 +1,28 @@
+<center>
+  <div style="display:inline-block; width:70%;">
+    <form id="filter_form" method="post" onchange="handle_filter();">
+      <div class="form-group">
+        <label for="filter_views">Filter Task Views</label>
+        <select class="form-control" name="filter_views" id="filter_views">
+          <option>{{filter_view}}</option>
+          <option value="filter_date_added">Sort by date added</option>
+          <option value="filter_due_date">Sort by due date</option>
+          <option value="filter_tags_number">Sort by number of tags</option>
+          <option value="filter_task_completion">Sort by completed tasks</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  &nbsp
+    <button name="reverse_filter" onclick="filter_reverse();" class="btn btn-primary" style="display:inline-block;">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      <i class="fa fa-arrow-down" aria-hidden="true"></i>
+      Reverse List
+    </button>
+    <div class="form-check" style="display:inline-block;">
+      <input onchange="hide_completed_tasks();" class="form-check-input" type="checkbox" id="completed_task_checkbox">
+      <label class="form-check-label" for="completed_task_checkbox">
+        Hide completed tasks
+      </label>
+    </div>
+</center>
